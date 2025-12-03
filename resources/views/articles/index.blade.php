@@ -1,81 +1,41 @@
 @extends('layouts.app')
 
 @section('content')
-    <style>
-        .article-item {
-            margin-bottom: 2rem;
-            padding: 1rem;
-            border-left: 4px solid #3498db;
-        }
-        
-        .article-item h2 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-        
-        .article-item a {
-            text-decoration: none;
-        }
-        
-        .article-item a:hover h2 {
-            color: #db3434ff;
-        }
-        
-        .article-body {
-            color: #7f8c8d;
-            line-height: 1.6;
-        }
-        
-        .search-form {
-            margin-bottom: 2rem;
-            padding: 1rem;
-            background: #f8f9fa;
-            border-radius: 8px;
-        }
-        
-        .search-form input[type="text"] {
-            padding: 0.5rem;
-            border: 1px solid #ddd;
-            border-radius: 4px;
-            margin-right: 0.5rem;
-        }
-        
-        .search-form input[type="submit"] {
-            padding: 0.5rem 1rem;
-            background: #3498db;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        
-        .pagination {
-            margin-top: 2rem;
-            text-align: center;
-        }
-    </style>
-
-    <div class="search-form">
-        {!! html()->form('GET', route('articles.index'))->open() !!}
-            {!! html()->input('text', 'q', $q ?? '')->placeholder('Поиск статей...') !!}
-            {!! html()->submit('Найти') !!}
-        {!! html()->form()->close() !!}
-    </div>
     
-    <h1>Список статей</h1>
-    
-    @foreach ($articles as $article)
-        <div class="article-item">
-            <a href="{{ route('articles.show', ['id' => $article->id]) }}">
-                <h2>{{ $article->name }}</h2>
-            </a>
-            <div class="article-body">
-                {{ Str::limit($article->body, 200) }}
-            </div>
+    <div class="page-container">
+        <div class="search-form">
+            {!! html()->form('GET', route('articles.index'))->open() !!}
+                {!! html()->input('text', 'q', $q ?? '')->placeholder('Поиск статей...') !!}
+                {!! html()->submit('Найти')->class('submit-btn') !!}
+            {!! html()->form()->close() !!}
         </div>
-    @endforeach
-    
-    <div class="pagination">
-        {{ $articles->links() }}
-    </div>
+        
+        <h1 class="mystyleH1">Список статей</h1>
+        
+        @if($articles->count() > 0)
+            <div class="articles-grid">
+                @foreach ($articles as $article)
+                    <div class="article-card">
+                        <a href="{{ route('articles.show', $article->id) }}">
+                            <h2>{{ $article->name }}</h2>
+                        </a>
+                        <div class="article-body">
+                            {{ Str::limit($article->body, 150) }}
+                        </div>
+                        <div class="article-meta">
+                            Статья #{{ $article->id }}
+                            @if($article->created_at)
+                                • {{ $article->created_at->format('d.m.Y') }}
+                            @endif
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        @else
+            <div style="text-align: center; padding: 3rem; color: #7f8c8d;">
+                <h3>Статьи не найдены</h3>
+                <p>Попробуйте изменить поисковый запрос</p>
+            </div>
+        @endif
+        @include('components.pagination')
 @endsection

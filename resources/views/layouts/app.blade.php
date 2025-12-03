@@ -7,15 +7,19 @@
         <meta name="csrf-param" content="_token" />
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         <script src="{{ asset('js/app.js') }}"></script>
+        <!-- Подключаем CSS -->
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    
+        <!-- Подключаем наши стили для флеш-сообщений -->
+        <style>
+            {!! file_get_contents(resource_path('css/flash-messages.css')) !!}
+            {!! file_get_contents(resource_path('css/createedit.css')) !!}
+        </style>
     </head>
     <body>
-        <nav style="background: #f8f9fa; padding: 1rem;">
-        <ul style="list-style: none; display: flex; gap: 2rem; margin: 0; padding: 0;">
-            <li><a href="{{ route('welcome') }}">Главная</a></li>
-            <li><a href="{{ route('about') }}">О проекте</a></li>
-            <li><a href="{{ route('articles.index') }}">Список статей</a></li>
-        </ul>
-    </nav>
+        <!-- Навигация и другой контент -->
+        @include('partials.navbar')
+        @include('components.flash-messages')
         <div class="container mt-4">
             <h1>@yield('header')</h1>
             <div>

@@ -1,0 +1,295 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+.page-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.mystyleH1 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem; 
+    text-align: center;
+}
+
+.delete-btn {
+    padding: 0.5rem 1.5rem;
+    background: #e74c3c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.delete-btn:hover {
+    background: #c0392b;
+}   
+
+.submit-btn {
+    padding: 0.5rem 1.5rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+.submit-btn:hover {
+    background: #2980b9;
+}
+
+.cancel-btn {
+    padding: 0.5rem 1.5rem;
+    background: #95a5a6;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s ease;
+    font-family: inherit;
+    display: inline-block; /* ← Добавьте это! */
+    vertical-align: middle; /* ← Выравнивание по вертикали */
+    box-sizing: border-box;
+}
+
+.cancel-btn:hover {
+    background: #7f8c8d;
+    text-decoration: none;
+    color: white;
+}
+
+
+
+.error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+}
+
+/* ===== ФОРМЫ ===== */
+.simple-form {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-field {
+    margin-bottom: 1rem;
+}
+
+.form-field label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 500;
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s ease;
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+.form-field textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.search-form {
+    margin-bottom: 2rem;
+    padding: 1rem;
+    background: #f8f9fa;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.search-form input[type="text"] {
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-right: 0.5rem;
+    width: 300px;
+}
+
+/* ===== СТАТЬИ ===== */
+.articles-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.article-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    border: 1px solid #e1e8ed;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+}
+
+.article-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-color: #3498db;
+}
+
+.article-card h2 {
+    margin: 0 0 1rem 0;
+    font-size: 1.25rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+}
+
+.article-card a {
+    text-decoration: none;
+    color: #2c3e50;
+}
+
+.article-card a:hover h2 {
+    color: #3498db;
+}
+
+.article-body {
+    color: #7f8c8d;
+    line-height: 1.5;
+    flex-grow: 1;
+    margin-bottom: 1rem;
+    word-wrap: break-word;
+}
+
+.article-meta {
+    color: #95a5a6;
+    font-size: 0.875rem;
+    border-top: 1px solid #ecf0f1;
+    padding-top: 0.75rem;
+    margin-top: auto;
+}
+
+.article-simple {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.article-simple h1 {
+    color: #2c3e50;
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.4;
+}
+
+.article-simple .content {
+    line-height: 1.7;
+    font-size: 1.1rem;
+    color: #34495e;
+}
+
+.article-simple .back-link {
+    display: inline-block;
+    margin-bottom: 2rem;
+    color: #3498db;
+    text-decoration: none;
+}
+
+.article-simple .back-link:hover {
+    text-decoration: underline;
+}
+
+/* ===== ПАГИНАЦИЯ ===== */
+.pagination {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.pagination .page-item {
+    display: inline-block;
+}
+
+.pagination .page-link {
+    display: block;
+    padding: 0.5rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    text-decoration: none;
+    color: #3498db;
+    transition: all 0.3s ease;
+    min-width: 42px;
+    text-align: center;
+}
+
+.pagination .page-link:hover {
+    background: #f8f9fa;
+    border-color: #3498db;
+}
+
+.pagination .page-item.active .page-link {
+    background: #3498db;
+    border-color: #3498db;
+    color: white;
+}
+
+.pagination .page-item.disabled .page-link {
+    color: #6c757d;
+    pointer-events: none;
+    background: #f8f9fa;
+    border-color: #ddd;
+}
+
+.pagination-info {
+    text-align: center;
+    margin-top: 1rem;
+    color: #6c757d;
+    font-size: 0.9rem;
+}
+
+/* ===== АДАПТИВНОСТЬ ===== */
+@media (max-width: 1024px) {
+    .articles-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .articles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-form input[type="text"] {
+        width: 200px;
+    }
+    
+    .page-container {
+        padding: 1rem;
+    }
+    
+    .pagination {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+        margin-top: 2rem;
+    }
+    
+    .pagination .page-link {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.9rem;
+        min-width: 38px;
+    }
+    
+    .article-simple {
+        padding: 1rem;
+    }
+}
